@@ -9,7 +9,7 @@ interface DeploymentOptions {
 export const deployment = async ({
     start
 }: DeploymentOptions = {}): Promise<any> => {
-    const manifest = Manifest.get('/', process.env);
+    const manifest = Manifest.get('/', process.env) as unknown as Glue.Manifest;
     const server = await Glue.compose(manifest, { relativeTo: __dirname });
 
     if (start) {
