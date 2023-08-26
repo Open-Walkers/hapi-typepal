@@ -9,3 +9,7 @@ declare module "@hapipal/confidence" {
 declare module "@hapipal/toys" {
   export * from "@hapipal/types-toys";
 }
+
+declare module "@hapipal/schwifty" {
+  export * from "@hapipal/types-schwifty";
+}

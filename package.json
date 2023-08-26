@@ -6,7 +6,7 @@
     "start": "node ./dist/server",
     "dev:start": "concurrently \"npx tsc --watch\" \"nodemon -q ./dist/server\"",
     "test": "lab -a @hapi/code ./dist/test",
-    "build": "npx tsc",
+    "build": "rm -rf ./dist && npx tsc && cp -r ./lib/migrations ./dist/lib/migrations",
     "lint": "eslint --ext .ts .",
     "lint:fix": "eslint --ext .ts . --fix"
   },
@@ -15,19 +15,26 @@
     "@hapi/boom": "9.x.x",
     "@hapi/eslint-plugin": "^6.0.0",
     "@hapipal/haute-couture": "4.x.x",
-    "joi": "17.x.x"
+    "@hapipal/schwifty": "6.x.x",
+    "joi": "17.x.x",
+    "objection": "2.x.x"
+  },
+  "peerDependencies": {
+    "knex": "0.21.x"
   },
   "devDependencies": {
     "@hapi/code": "8.x.x",
     "@hapi/glue": "8.x.x",
     "@hapi/hapi": "20.x.x",
     "@hapi/lab": "24.x.x",
+    "@hapi/hoek": "9.x.x",
     "@hapipal/confidence": "6.x.x",
     "@hapipal/hpal": "3.x.x",
     "@hapipal/hpal-debug": "2.x.x",
     "@hapipal/toys": "3.x.x",
     "@hapipal/types-confidence": "^0.0.1-alpha.1",
     "@hapipal/types-haute-couture": "^0.0.1-alpha.1",
+    "@hapipal/types-schwifty": "^0.0.1-alpha.0",
     "@hapipal/types-toys": "^0.0.0",
     "@types/hapi__glue": "^6.1.6",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
@@ -36,7 +43,10 @@
     "dotenv": "8.x.x",
     "eslint": "7.x.x",
     "exiting": "6.x.x",
+    "knex": "0.21.x",
+    "sqlite3": "5.x.x",
     "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   }
 }
