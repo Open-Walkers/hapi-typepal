@@ -32,6 +32,10 @@ export default new Confidence.Store({
                 options: {}
             },
             {
+                plugin: './plugins/swagger',
+                options: {}
+            },
+            {
                 plugin: {
                     $filter: 'NODE_ENV',
                     $default: '@hapipal/hpal-debug',
